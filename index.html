@@ -163,6 +163,7 @@
             margin-bottom: 40px;
         }
 
+        /* Detailed Services Section */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -201,6 +202,7 @@
             line-height: 1.6;
         }
 
+        /* Detailed Advantages Section */
         .vorteile-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -246,6 +248,7 @@
             color: var(--text-gray);
         }
 
+        /* Ablauf Section */
         .ablauf-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -259,6 +262,7 @@
             border-radius: 10px;
             padding: 25px;
             text-align: center;
+            position: relative;
         }
 
         .step-number {
@@ -286,6 +290,7 @@
             color: var(--text-gray);
         }
 
+        /* CTA Box */
         .cta-section {
             background: linear-gradient(135deg, #1c2541 0%, #0b132b 100%);
             border: 2px solid var(--accent-cyan);
@@ -321,11 +326,18 @@
             margin-bottom: 30px;
         }
 
+        .phone-number, .email-address {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-main);
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
         .email-address {
             color: var(--accent-cyan);
             font-size: 22px;
-            font-weight: bold;
-            text-decoration: none;
         }
 
         .email-address:hover {
@@ -386,6 +398,10 @@
             font-size: 14px;
         }
 
+        footer p {
+            margin-bottom: 10px;
+        }
+
         footer a {
             color: var(--accent-cyan);
             text-decoration: none;
@@ -398,6 +414,7 @@
         @media (max-width: 768px) {
             .hero h2 { font-size: 30px; }
             .nav-links { display: none; }
+            .phone-number { font-size: 20px; }
             .email-address { font-size: 18px; }
             .vorteile-section { padding: 25px; }
         }
@@ -432,6 +449,7 @@
             </div>
         </section>
 
+        <!-- Leistungen -->
         <div id="leistungen" class="section-title">Unsere Leistungen</div>
         <section class="services-grid">
             <div class="service-card">
@@ -451,6 +469,7 @@
             </div>
         </section>
 
+        <!-- Vorteile -->
         <div id="vorteile" class="section-title">Ihre Vorteile auf einen Blick</div>
         <section class="vorteile-section">
             <div class="vorteil-item">
@@ -483,6 +502,7 @@
             </div>
         </section>
 
+        <!-- Ablauf -->
         <div id="ablauf" class="section-title">In 3 einfachen Schritten zum sauberen Fenster</div>
         <section class="ablauf-grid">
             <div class="step-card">
@@ -502,13 +522,14 @@
             </div>
         </section>
 
+        <!-- Kontakt Call-to-Action -->
         <section id="kontakt" class="cta-section">
             <h3>Jetzt Kontakt Aufnehmen</h3>
             <p>Sichern Sie sich jetzt Ihren Wunschtermin für strahlend saubere Fenster!</p>
             <p><strong>PANORAMO Glasreinigung</strong></p>
             
             <div class="contact-info">
-                <!-- Telefonnummer entfernt -->
+                <span class="phone-number">📞 0176 / 610 856 10</span>
                 <a href="mailto:kontakt@panoramo.info" class="email-address">✉️ kontakt@panoramo.info</a>
             </div>
             
@@ -522,7 +543,7 @@
     <footer>
         <div class="container">
             <p><strong>PANORAMO Glasreinigung</strong> – Ihr zuverlässiger Partner für saubere Fenster.</p>
-            <p>E-Mail: <a href="mailto:kontakt@panoramo.info">kontakt@panoramo.info</a></p>
+            <p>Telefon & WhatsApp: 0176 / 610 856 10 | E-Mail: <a href="mailto:kontakt@panoramo.info">kontakt@panoramo.info</a></p>
             <p>© PANORAMO Glasreinigung. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
