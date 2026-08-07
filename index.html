@@ -485,7 +485,7 @@
 
         .slots-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             gap: 10px;
             margin-bottom: 15px;
         }
@@ -705,14 +705,17 @@
             <div class="time-slots" id="timeSlotsSection">
                 <h4>Verfügbare Uhrzeiten am <span id="selectedDateText"></span>:</h4>
                 <div class="slots-grid">
-                    <button class="time-btn" type="button" onclick="selectTime(this, '08:00 Uhr')">08:00 Uhr</button>
-                    <button class="time-btn" type="button" onclick="selectTime(this, '10:30 Uhr')">10:30 Uhr</button>
-                    <button class="time-btn" type="button" onclick="selectTime(this, '13:00 Uhr')">13:00 Uhr</button>
-                    <button class="time-btn" type="button" onclick="selectTime(this, '15:30 Uhr')">15:30 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '15:00 Uhr')">15:00 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '16:00 Uhr')">16:00 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '17:00 Uhr')">17:00 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '18:00 Uhr')">18:00 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '19:00 Uhr')">19:00 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '20:00 Uhr')">20:00 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '21:00 Uhr')">21:00 Uhr</button>
                 </div>
             </div>
 
-            <!-- Hier ist deine fertige Formspree-URL eingebunden! -->
+            <!-- Formspree Formular -->
             <form class="booking-form" id="bookingForm" action="https://formspree.io/f/mljrdyze" method="POST">
                 <h4>Ihre Kontaktdaten</h4>
                 
