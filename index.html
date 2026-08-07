@@ -93,19 +93,38 @@
             color: var(--accent-cyan);
         }
 
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
         .header-btn {
-            background-color: var(--accent-cyan);
-            color: var(--bg-dark);
+            background-color: transparent;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
             font-weight: 700;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 6px;
             text-decoration: none;
             font-size: 14px;
-            transition: opacity 0.2s;
+            transition: all 0.2s;
+            cursor: pointer;
         }
 
         .header-btn:hover {
+            background-color: rgba(100, 223, 223, 0.1);
+        }
+
+        .header-btn-primary {
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark);
+            border: 2px solid var(--accent-cyan);
+        }
+
+        .header-btn-primary:hover {
             opacity: 0.9;
+            background-color: var(--accent-light);
         }
 
         .hero {
@@ -390,6 +409,167 @@
             transform: translateY(-2px);
         }
 
+        /* Modal / Kalender Style */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 19, 43, 0.85);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            color: var(--text-main);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: var(--text-gray);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-cyan);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-header h3 {
+            color: var(--accent-cyan);
+            font-size: 18px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-day-head {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-gray);
+        }
+
+        .calendar-day {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .calendar-day:hover:not(.disabled) {
+            background: var(--accent-cyan);
+            color: var(--bg-dark);
+            font-weight: bold;
+        }
+
+        .calendar-day.selected {
+            background: var(--accent-cyan);
+            color: var(--bg-dark);
+            font-weight: bold;
+        }
+
+        .calendar-day.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .time-slots {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .time-slots h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: var(--accent-light);
+        }
+
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .time-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .time-btn:hover, .time-btn.selected {
+            border-color: var(--accent-cyan);
+            background: var(--accent-cyan);
+            color: var(--bg-dark);
+            font-weight: bold;
+        }
+
+        .booking-form {
+            display: none;
+            margin-top: 15px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .booking-form input {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .booking-form input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .submit-booking {
+            background: var(--accent-cyan);
+            color: var(--bg-dark);
+            font-weight: bold;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
         footer {
             border-top: 1px solid var(--border-color);
             padding: 40px 0;
@@ -417,6 +597,7 @@
             .phone-number { font-size: 20px; }
             .email-address { font-size: 18px; }
             .vorteile-section { padding: 25px; }
+            .header-buttons { flex-direction: column; gap: 5px; }
         }
     </style>
 </head>
@@ -434,7 +615,10 @@
                 <a href="#ablauf">Ablauf</a>
                 <a href="#kontakt">Kontakt</a>
             </nav>
-            <a href="https://wa.me/4917661085610" class="header-btn">Termin anfragen</a>
+            <div class="header-buttons">
+                <a href="https://wa.me/4917661085610" class="header-btn">Termin anfragen</a>
+                <button class="header-btn header-btn-primary" id="openCalendarBtn">Termin buchen</button>
+            </div>
         </div>
     </header>
 
@@ -529,14 +713,57 @@
             <p><strong>PANORAMO Glasreinigung</strong></p>
             
             <div class="contact-info">
-    <a href="mailto:kontakt@panoramo.info" class="email-address">✉️ kontakt@panoramo.info</a>
-</div>
+                <a href="mailto:kontakt@panoramo.info" class="email-address">✉️ kontakt@panoramo.info</a>
+            </div>
             
             <div class="cta-buttons">
                 <a href="https://wa.me/4917661085610" class="whatsapp-btn">💬 Nachricht per WhatsApp</a>
                 <a href="mailto:kontakt@panoramo.info" class="email-btn">✉️ E-Mail senden</a>
             </div>
         </section>
+    </div>
+
+    <!-- Kalender Modal -->
+    <div class="modal-overlay" id="calendarModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeCalendarBtn">&times;</button>
+            <div class="calendar-header">
+                <h3>Wunschtermin auswählen</h3>
+                <span id="currentMonthYear"></span>
+            </div>
+            
+            <div class="calendar-grid" id="calendarDaysHeader">
+                <div class="calendar-day-head">Mo</div>
+                <div class="calendar-day-head">Di</div>
+                <div class="calendar-day-head">Mi</div>
+                <div class="calendar-day-head">Do</div>
+                <div class="calendar-day-head">Fr</div>
+                <div class="calendar-day-head">Sa</div>
+                <div class="calendar-day-head">So</div>
+            </div>
+
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Tage werden via JavaScript generiert -->
+            </div>
+
+            <div class="time-slots" id="timeSlotsSection">
+                <h4>Verfügbare Uhrzeiten am <span id="selectedDateText"></span>:</h4>
+                <div class="slots-grid">
+                    <button class="time-btn" onclick="selectTime(this, '08:00 Uhr')">08:00 Uhr</button>
+                    <button class="time-btn" onclick="selectTime(this, '10:30 Uhr')">10:30 Uhr</button>
+                    <button class="time-btn" onclick="selectTime(this, '13:00 Uhr')">13:00 Uhr</button>
+                    <button class="time-btn" onclick="selectTime(this, '15:30 Uhr')">15:30 Uhr</button>
+                </div>
+            </div>
+
+            <form class="booking-form" id="bookingForm" onsubmit="handleBookingSubmit(event)">
+                <h4>Ihre Kontaktdaten</h4>
+                <input type="text" id="custName" placeholder="Ihr Name" required>
+                <input type="email" id="custEmail" placeholder="Ihre E-Mail-Adresse" required>
+                <input type="tel" id="custPhone" placeholder="Ihre Telefonnummer" required>
+                <button type="submit" class="submit-booking">Terminvergabe anfragen</button>
+            </form>
+        </div>
     </div>
 
     <footer>
@@ -547,7 +774,115 @@
         </div>
     </footer>
 
+    <script>
+        const modal = document.getElementById('calendarModal');
+        const openBtn = document.getElementById('openCalendarBtn');
+        const closeBtn = document.getElementById('closeCalendarBtn');
+        const grid = document.getElementById('calendarGrid');
+        const monthYearText = document.getElementById('currentMonthYear');
+        const timeSlotsSection = document.getElementById('timeSlotsSection');
+        const bookingForm = document.getElementById('bookingForm');
+        const selectedDateText = document.getElementById('selectedDateText');
+
+        let selectedDate = null;
+        let selectedTime = null;
+
+        openBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            generateCalendar();
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            resetForm();
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                resetForm();
+            }
+        });
+
+        function generateCalendar() {
+            grid.innerHTML = '';
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth();
+
+            const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+            monthYearText.innerText = `${monthNames[month]} ${year}`;
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            // Offset für Montag-Start
+            let startOffset = firstDay === 0 ? 6 : firstDay - 1;
+
+            for (let i = 0; i < startOffset; i++) {
+                const empty = document.createElement('div');
+                grid.appendChild(empty);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElem = document.createElement('div');
+                dayElem.classList.add('calendar-day');
+                dayElem.innerText = day;
+
+                const dateObj = new Date(year, month, day);
+                
+                // Sonntage & vergangene Tage deaktivieren
+                if (dateObj.getDay() === 0 || day < now.getDate()) {
+                    dayElem.classList.add('disabled');
+                } else {
+                    dayElem.addEventListener('click', () => selectDay(dayElem, day, monthNames[month]));
+                }
+
+                grid.appendChild(dayElem);
+            }
+        }
+
+        function selectDay(elem, day, monthName) {
+            document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+            elem.classList.add('selected');
+
+            selectedDate = `${day}. ${monthName}`;
+            selectedDateText.innerText = selectedDate;
+            timeSlotsSection.style.display = 'block';
+            bookingForm.style.display = 'none';
+        }
+
+        function selectTime(btn, time) {
+            document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedTime = time;
+
+            bookingForm.style.display = 'flex';
+        }
+
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('custName').value;
+            const email = document.getElementById('custEmail').value;
+            const phone = document.getElementById('custPhone').value;
+
+            alert(`Vielen Dank, ${name}!\nIhre Anfrage für den ${selectedDate} um ${selectedTime} wurde abgesendet. Wir melden uns umgehend bei Ihnen.`);
+            modal.style.display = 'none';
+            resetForm();
+        }
+
+        function resetForm() {
+            timeSlotsSection.style.display = 'none';
+            bookingForm.style.display = 'none';
+            document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+            document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
+            selectedDate = null;
+            selectedTime = null;
+            document.getElementById('custName').value = '';
+            document.getElementById('custEmail').value = '';
+            document.getElementById('custPhone').value = '';
+        }
+    </script>
 </body>
 </html>
-
  
