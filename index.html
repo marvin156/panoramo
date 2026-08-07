@@ -182,7 +182,6 @@
             margin-bottom: 40px;
         }
 
-        /* Detailed Services Section */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -221,7 +220,6 @@
             line-height: 1.6;
         }
 
-        /* Detailed Advantages Section */
         .vorteile-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -267,7 +265,6 @@
             color: var(--text-gray);
         }
 
-        /* Ablauf Section */
         .ablauf-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -309,7 +306,6 @@
             color: var(--text-gray);
         }
 
-        /* CTA Box */
         .cta-section {
             background: linear-gradient(135deg, #1c2541 0%, #0b132b 100%);
             border: 2px solid var(--accent-cyan);
@@ -345,18 +341,11 @@
             margin-bottom: 30px;
         }
 
-        .phone-number, .email-address {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--text-main);
-            letter-spacing: 1px;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
         .email-address {
             color: var(--accent-cyan);
             font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
         }
 
         .email-address:hover {
@@ -371,9 +360,7 @@
             flex-wrap: wrap;
         }
 
-        .whatsapp-btn {
-            background-color: #25d366;
-            color: #ffffff;
+        .whatsapp-btn, .email-btn {
             font-weight: 700;
             font-size: 18px;
             padding: 16px 36px;
@@ -385,28 +372,14 @@
             gap: 10px;
         }
 
-        .whatsapp-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: #ffffff;
         }
 
         .email-btn {
             background-color: var(--accent-cyan);
             color: var(--bg-dark);
-            font-weight: 700;
-            font-size: 18px;
-            padding: 16px 36px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: transform 0.2s, opacity 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .email-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
         }
 
         /* Modal / Kalender Style */
@@ -445,10 +418,6 @@
             cursor: pointer;
             background: none;
             border: none;
-        }
-
-        .modal-close:hover {
-            color: var(--accent-cyan);
         }
 
         .calendar-header {
@@ -578,23 +547,12 @@
             font-size: 14px;
         }
 
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        footer a {
-            color: var(--accent-cyan);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer p { margin-bottom: 10px; }
+        footer a { color: var(--accent-cyan); text-decoration: none; }
 
         @media (max-width: 768px) {
             .hero h2 { font-size: 30px; }
             .nav-links { display: none; }
-            .phone-number { font-size: 20px; }
             .email-address { font-size: 18px; }
             .vorteile-section { padding: 25px; }
             .header-buttons { flex-direction: column; gap: 5px; }
@@ -706,7 +664,7 @@
             </div>
         </section>
 
-        <!-- Kontakt Call-to-Action -->
+        <!-- Kontakt CTA -->
         <section id="kontakt" class="cta-section">
             <h3>Jetzt Kontakt Aufnehmen</h3>
             <p>Sichern Sie sich jetzt Ihren Wunschtermin für strahlend saubere Fenster!</p>
@@ -742,26 +700,33 @@
                 <div class="calendar-day-head">So</div>
             </div>
 
-            <div class="calendar-grid" id="calendarGrid">
-                <!-- Tage werden via JavaScript generiert -->
-            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
 
             <div class="time-slots" id="timeSlotsSection">
                 <h4>Verfügbare Uhrzeiten am <span id="selectedDateText"></span>:</h4>
                 <div class="slots-grid">
-                    <button class="time-btn" onclick="selectTime(this, '08:00 Uhr')">08:00 Uhr</button>
-                    <button class="time-btn" onclick="selectTime(this, '10:30 Uhr')">10:30 Uhr</button>
-                    <button class="time-btn" onclick="selectTime(this, '13:00 Uhr')">13:00 Uhr</button>
-                    <button class="time-btn" onclick="selectTime(this, '15:30 Uhr')">15:30 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '08:00 Uhr')">08:00 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '10:30 Uhr')">10:30 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '13:00 Uhr')">13:00 Uhr</button>
+                    <button class="time-btn" type="button" onclick="selectTime(this, '15:30 Uhr')">15:30 Uhr</button>
                 </div>
             </div>
 
-            <form class="booking-form" id="bookingForm" onsubmit="handleBookingSubmit(event)">
+            <!-- E-Mail Formular mit Formspree Integration -->
+            <form class="booking-form" id="bookingForm" action="https://formspree.io/f/DEINE_FORMSPREE_ID" method="POST">
                 <h4>Ihre Kontaktdaten</h4>
-                <input type="text" id="custName" placeholder="Ihr Name" required>
-                <input type="email" id="custEmail" placeholder="Ihre E-Mail-Adresse" required>
-                <input type="tel" id="custPhone" placeholder="Ihre Telefonnummer" required>
-                <button type="submit" class="submit-booking">Terminvergabe anfragen</button>
+                
+                <!-- Versteckte Felder für Datum und Uhrzeit -->
+                <input type="hidden" name="Wunschdatum" id="hiddenDate">
+                <input type="hidden" name="Wunschuhrzeit" id="hiddenTime">
+                <input type="hidden" name="_replyto" id="replyToEmail">
+                <input type="hidden" name="_subject" value="Neue Terminanfrage über PANORAMO Webseite">
+
+                <input type="text" name="Name" id="custName" placeholder="Ihr Name" required>
+                <input type="email" name="Email" id="custEmail" placeholder="Ihre E-Mail-Adresse" required onchange="document.getElementById('replyToEmail').value = this.value">
+                <input type="tel" name="Telefon" id="custPhone" placeholder="Ihre Telefonnummer" required>
+                
+                <button type="submit" class="submit-booking">Terminanfrage absenden</button>
             </form>
         </div>
     </div>
@@ -783,6 +748,8 @@
         const timeSlotsSection = document.getElementById('timeSlotsSection');
         const bookingForm = document.getElementById('bookingForm');
         const selectedDateText = document.getElementById('selectedDateText');
+        const hiddenDate = document.getElementById('hiddenDate');
+        const hiddenTime = document.getElementById('hiddenTime');
 
         let selectedDate = null;
         let selectedTime = null;
@@ -816,7 +783,6 @@
             const firstDay = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-            // Offset für Montag-Start
             let startOffset = firstDay === 0 ? 6 : firstDay - 1;
 
             for (let i = 0; i < startOffset; i++) {
@@ -831,23 +797,24 @@
 
                 const dateObj = new Date(year, month, day);
                 
-                // Sonntage & vergangene Tage deaktivieren
                 if (dateObj.getDay() === 0 || day < now.getDate()) {
                     dayElem.classList.add('disabled');
                 } else {
-                    dayElem.addEventListener('click', () => selectDay(dayElem, day, monthNames[month]));
+                    dayElem.addEventListener('click', () => selectDay(dayElem, day, monthNames[month], year));
                 }
 
                 grid.appendChild(dayElem);
             }
         }
 
-        function selectDay(elem, day, monthName) {
+        function selectDay(elem, day, monthName, year) {
             document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
             elem.classList.add('selected');
 
-            selectedDate = `${day}. ${monthName}`;
+            selectedDate = `${day}. ${monthName} ${year}`;
             selectedDateText.innerText = selectedDate;
+            hiddenDate.value = selectedDate;
+            
             timeSlotsSection.style.display = 'block';
             bookingForm.style.display = 'none';
         }
@@ -856,19 +823,9 @@
             document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
             selectedTime = time;
+            hiddenTime.value = time;
 
             bookingForm.style.display = 'flex';
-        }
-
-        function handleBookingSubmit(event) {
-            event.preventDefault();
-            const name = document.getElementById('custName').value;
-            const email = document.getElementById('custEmail').value;
-            const phone = document.getElementById('custPhone').value;
-
-            alert(`Vielen Dank, ${name}!\nIhre Anfrage für den ${selectedDate} um ${selectedTime} wurde abgesendet. Wir melden uns umgehend bei Ihnen.`);
-            modal.style.display = 'none';
-            resetForm();
         }
 
         function resetForm() {
@@ -878,9 +835,6 @@
             document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
             selectedDate = null;
             selectedTime = null;
-            document.getElementById('custName').value = '';
-            document.getElementById('custEmail').value = '';
-            document.getElementById('custPhone').value = '';
         }
     </script>
 </body>
