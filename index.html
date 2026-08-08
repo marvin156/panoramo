@@ -307,7 +307,6 @@
             color: var(--text-gray);
         }
 
-        /* Bewerten-Bereich & Formular */
         .reviews-container {
             margin-bottom: 70px;
         }
@@ -470,7 +469,6 @@
             color: var(--bg-dark);
         }
 
-        /* Modal / Kalender Style */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -760,7 +758,7 @@
             </div>
         </section>
 
-        <!-- Bewerten-Bereich (Formular) -->
+        <!-- Bewerten-Bereich -->
         <div id="bewertung" class="section-title">Kundenfeedback</div>
         <section class="reviews-container">
             <div class="review-card-box">
@@ -768,7 +766,6 @@
                 <p class="subtext">Helfen Sie uns und zukünftigen Kunden mit Ihrem ehrlichen Feedback zu PANORAMO!</p>
 
                 <form class="review-form" action="https://formspree.io/f/mljrdyze" method="POST">
-                    
                     <input type="hidden" name="_subject" value="Neue Kunden-Bewertung für PANORAMO">
                     
                     <div class="form-group">
@@ -842,15 +839,7 @@
 
             <div class="time-slots" id="timeSlotsSection">
                 <h4>Verfügbare Uhrzeiten am <span id="selectedDateText"></span>:</h4>
-                <div class="slots-grid">
-                    <button class="time-btn" type="button" onclick="selectTime(this, '15:00 Uhr')">15:00 Uhr</button>
-                    <button class="time-btn" type="button" onclick="selectTime(this, '16:00 Uhr')">16:00 Uhr</button>
-                    <button class="time-btn" type="button" onclick="selectTime(this, '17:00 Uhr')">17:00 Uhr</button>
-                    <button class="time-btn" type="button" onclick="selectTime(this, '18:00 Uhr')">18:00 Uhr</button>
-                    <button class="time-btn" type="button" onclick="selectTime(this, '19:00 Uhr')">19:00 Uhr</button>
-                    <button class="time-btn" type="button" onclick="selectTime(this, '20:00 Uhr')">20:00 Uhr</button>
-                    <button class="time-btn" type="button" onclick="selectTime(this, '21:00 Uhr')">21:00 Uhr</button>
-                </div>
+                <div class="slots-grid" id="slotsGridContainer"></div>
             </div>
 
             <!-- Formspree Formular für Termine -->
@@ -881,13 +870,13 @@
     </footer>
 
     <script>
-        // Modal & Kalender Script
         const modal = document.getElementById('calendarModal');
         const openBtn = document.getElementById('openCalendarBtn');
         const closeBtn = document.getElementById('closeCalendarBtn');
         const grid = document.getElementById('calendarGrid');
         const monthYearText = document.getElementById('currentMonthYear');
         const timeSlotsSection = document.getElementById('timeSlotsSection');
+        const slotsGridContainer = document.getElementById('slotsGridContainer');
         const bookingForm = document.getElementById('bookingForm');
         const selectedDateText = document.getElementById('selectedDateText');
         const hiddenDate = document.getElementById('hiddenDate');
@@ -937,9 +926,7 @@
                 dayElem.classList.add('calendar-day');
                 dayElem.innerText = day;
 
-                const dateObj = new Date(year, month, day);
-                
-                if (dateObj.getDay() === 0 || day < now.getDate()) {
+                if (day < now.getDate()) {
                     dayElem.classList.add('disabled');
                 } else {
                     dayElem.addEventListener('click', () => selectDay(dayElem, day, monthNames[month], year));
@@ -956,9 +943,27 @@
             selectedDate = `${day}. ${monthName} ${year}`;
             selectedDateText.innerText = selectedDate;
             hiddenDate.value = selectedDate;
-            
+
+            renderTimeSlots();
+
             timeSlotsSection.style.display = 'block';
             bookingForm.style.display = 'none';
+        }
+
+        function renderTimeSlots() {
+            slotsGridContainer.innerHTML = '';
+
+            // Für jeden Tag von 15:00 bis 21:00 Uhr im Stundentakt
+            const times = ["15:00 Uhr", "16:00 Uhr", "17:00 Uhr", "18:00 Uhr", "19:00 Uhr", "20:00 Uhr", "21:00 Uhr"];
+
+            times.forEach(time => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.classList.add('time-btn');
+                btn.innerText = time;
+                btn.addEventListener('click', () => selectTime(btn, time));
+                slotsGridContainer.appendChild(btn);
+            });
         }
 
         function selectTime(btn, time) {
