@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PANORAMO - Professionelle Glas- & Fensterreinigung</title>
+    <title>PANORAMO - Professionelle Glas- & Fensterreinigung in Kiel</title>
     <style>
         :root {
             --bg-dark: #0b132b;
@@ -420,6 +420,16 @@
             margin-right: auto;
         }
 
+        .location-info {
+            color: var(--accent-light);
+            font-size: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -650,7 +660,7 @@
     <header>
         <div class="container header-content">
             <div class="logo">
-                <div class="badge">Neu in Ihrer Region</div>
+                <div class="badge">Kiel & Umgebung</div>
                 <h1>PANO<span>RAMO</span></h1>
             </div>
             <nav class="nav-links">
@@ -670,11 +680,11 @@
     <div class="container">
         <section class="hero">
             <h2>Strahlende Aussichten für <span>Ihr Zuhause</span></h2>
-            <div class="tagline">Glasklare Scheiben & strahlendes Licht – professionell, schnell und zuverlässig.</div>
+            <div class="tagline">Glasklare Scheiben in Kiel & Umgebung – professionell, schnell und zuverlässig.</div>
             
             <div class="hero-box">
                 <p>Gönnen Sie Ihren Fenstern die perfekte Pflege! Verschmutzungen durch Wetter, Staub und Pollen mindern nicht nur die Lichteinstrahlung, sondern auch das Wohlbefinden in den eigenen vier Wänden.</p>
-                <p>Wir von <strong>PANORAMO</strong> sind ein frisch gegründetes Team aus zwei jungen, motivierten Gründern. Mit vollem Einsatz, moderner Technik und echtem Engagement sorgen wir persönlich für makellos saubere Außenflächen und streifenfreien Glanz.</p>
+                <p>Wir von <strong>PANORAMO</strong> sind ein frisch gegründetes Team aus zwei jungen, motivierten Gründern direkt aus der Region. Mit vollem Einsatz, moderner Technik und echtem Engagement sorgen wir in Kiel und Umgebung persönlich für makellos saubere Außenflächen und streifenfreien Glanz.</p>
             </div>
         </section>
 
@@ -704,8 +714,8 @@
             <div class="vorteil-item">
                 <div class="vorteil-icon">✓</div>
                 <div class="vorteil-content">
-                    <h4>Jung, Motiviert & Persönlich</h4>
-                    <p>Als neu gegründetes Lokalunternehmen legen wir bei jedem einzelnen Auftrag 100 % Herzblut an den Tag, um Sie absolut zu begeistern.</p>
+                    <h4>Jung, Motiviert & Regional</h4>
+                    <p>Als neu gegründetes Lokalunternehmen direkt aus Kiel legen wir bei jedem einzelnen Auftrag 100 % Herzblut an den Tag, um Sie absolut zu begeistern.</p>
                 </div>
             </div>
             <div class="vorteil-item">
@@ -802,6 +812,7 @@
         <!-- Kontakt CTA -->
         <section id="kontakt" class="cta-section">
             <h3>Jetzt Kontakt Aufnehmen</h3>
+            <div class="location-info">📍 Einsatzgebiet: <strong>Kiel und Umgebung</strong></div>
             <p>Sichern Sie sich jetzt Ihren Wunschtermin für strahlend saubere Fenster!</p>
             <p><strong>PANORAMO Glasreinigung</strong></p>
             
@@ -852,7 +863,7 @@
                 <input type="hidden" name="_subject" value="Neue Terminanfrage über PANORAMO Webseite">
 
                 <input type="text" name="Name" id="custName" placeholder="Ihr Name" required>
-                <input type="text" name="Adresse" id="custAddress" placeholder="Straße, Nr., PLZ & Ort" required>
+                <input type="text" name="Adresse" id="custAddress" placeholder="Straße, Nr., PLZ & Ort (Kiel & Umgebung)" required>
                 <input type="email" name="Email" id="custEmail" placeholder="Ihre E-Mail-Adresse" required onchange="document.getElementById('replyToEmail').value = this.value">
                 <input type="tel" name="Telefon" id="custPhone" placeholder="Ihre Telefonnummer" required>
                 
@@ -863,7 +874,7 @@
 
     <footer>
         <div class="container">
-            <p><strong>PANORAMO Glasreinigung</strong> – Ihr zuverlässiger Partner für saubere Fenster.</p>
+            <p><strong>PANORAMO Glasreinigung</strong> – Ihr zuverlässiger Partner für saubere Fenster in Kiel & Umgebung.</p>
             <p>E-Mail: <a href="mailto:kontakt@panoramo.info">kontakt@panoramo.info</a></p>
             <p>© PANORAMO Glasreinigung. Alle Rechte vorbehalten.</p>
         </div>
@@ -953,7 +964,6 @@
         function renderTimeSlots() {
             slotsGridContainer.innerHTML = '';
 
-            // Für jeden Tag von 15:00 bis 21:00 Uhr im Stundentakt
             const times = ["15:00 Uhr", "16:00 Uhr", "17:00 Uhr", "18:00 Uhr", "19:00 Uhr", "20:00 Uhr", "21:00 Uhr"];
 
             times.forEach(time => {
