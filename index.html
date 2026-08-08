@@ -14,6 +14,7 @@
             --text-main: #ffffff;
             --text-muted: #e0e6ed;
             --text-gray: #a0aec0;
+            --star-gold: #ffc107;
         }
 
         * {
@@ -306,6 +307,68 @@
             color: var(--text-gray);
         }
 
+        /* Testimonials / Rezensionen */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 70px;
+        }
+
+        .review-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .stars {
+            color: var(--star-gold);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-size: 15px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark);
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .author-info h5 {
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        .author-info span {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
         .cta-section {
             background: linear-gradient(135deg, #1c2541 0%, #0b132b 100%);
             border: 2px solid var(--accent-cyan);
@@ -571,6 +634,7 @@
                 <a href="#leistungen">Leistungen</a>
                 <a href="#vorteile">Vorteile</a>
                 <a href="#ablauf">Ablauf</a>
+                <a href="#bewertungen">Bewertungen</a>
                 <a href="#kontakt">Kontakt</a>
             </nav>
             <div class="header-buttons">
@@ -668,6 +732,52 @@
                 <div class="step-number">3</div>
                 <h4>Glanz genießen</h4>
                 <p>Wir kommen persönlich vorbei und reinigen Ihre Fenster pünktlich, sauber und gründlich. Sie genießen die freie Sicht!</p>
+            </div>
+        </section>
+
+        <!-- Bewertungen / Rezensionen -->
+        <div id="bewertungen" class="section-title">Das sagen unsere Kunden</div>
+        <section class="reviews-grid">
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Super sympathisches junges Team! Die beiden waren extrem pünktlich, höflich und haben die Fenster wirklich blitzblank hinterlassen. Werde sie auf jeden Fall regelmäßig buchen."</p>
+                </div>
+                <div class="review-author">
+                    <div class="author-avatar">M</div>
+                    <div class="author-info">
+                        <h5>Michael S.</h5>
+                        <span>Privatmenagerie / Einfamilienhaus</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Endlich mal wieder freie Sicht! Sehr unkomplizierte Terminvergabe über WhatsApp. Das Ergebnis lässt keine Wünsche offen – kein einziger Streifen auf dem Glas."</p>
+                </div>
+                <div class="review-author">
+                    <div class="author-avatar">S</div>
+                    <div class="author-info">
+                        <h5>Sabine K.</h5>
+                        <span>Wohnung mit Wintergarten</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Top Preis-Leistungs-Verhältnis. Man merkt sofort, dass die Jungs motiviert sind und mit echter Leidenschaft arbeiten. Absolute Empfehlung!"</p>
+                </div>
+                <div class="review-author">
+                    <div class="author-avatar">T</div>
+                    <div class="author-info">
+                        <h5>Thomas B.</h5>
+                        <span>Eigentumswohnung</span>
+                    </div>
+                </div>
             </div>
         </section>
 
