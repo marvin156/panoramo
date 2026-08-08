@@ -307,66 +307,91 @@
             color: var(--text-gray);
         }
 
-        /* Testimonials / Rezensionen */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+        /* Bewerten-Bereich & Formular */
+        .reviews-container {
             margin-bottom: 70px;
         }
 
-        .review-card {
+        .review-card-box {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 25px;
+            padding: 35px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .review-card-box h3 {
+            color: var(--accent-cyan);
+            margin-bottom: 8px;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .review-card-box p.subtext {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .review-form {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            gap: 15px;
         }
 
-        .stars {
-            color: var(--star-gold);
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-
-        .review-text {
-            font-size: 15px;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .review-author {
+        .form-group {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        .author-avatar {
-            width: 40px;
-            height: 40px;
+        .form-group label {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--accent-light);
+        }
+
+        .review-form input, 
+        .review-form select, 
+        .review-form textarea {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .review-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .review-form input:focus, 
+        .review-form select:focus, 
+        .review-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .submit-btn {
             background-color: var(--accent-cyan);
             color: var(--bg-dark);
             font-weight: bold;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .author-info h5 {
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
             font-size: 15px;
-            color: var(--text-main);
+            transition: background 0.2s;
+            margin-top: 10px;
         }
 
-        .author-info span {
-            font-size: 12px;
-            color: var(--text-gray);
+        .submit-btn:hover {
+            background-color: var(--accent-light);
         }
 
         .cta-section {
@@ -634,7 +659,7 @@
                 <a href="#leistungen">Leistungen</a>
                 <a href="#vorteile">Vorteile</a>
                 <a href="#ablauf">Ablauf</a>
-                <a href="#bewertungen">Bewertungen</a>
+                <a href="#bewertung">Bewertung</a>
                 <a href="#kontakt">Kontakt</a>
             </nav>
             <div class="header-buttons">
@@ -735,49 +760,45 @@
             </div>
         </section>
 
-        <!-- Bewertungen / Rezensionen -->
-        <div id="bewertungen" class="section-title">Das sagen unsere Kunden</div>
-        <section class="reviews-grid">
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Super sympathisches junges Team! Die beiden waren extrem pünktlich, höflich und haben die Fenster wirklich blitzblank hinterlassen. Werde sie auf jeden Fall regelmäßig buchen."</p>
-                </div>
-                <div class="review-author">
-                    <div class="author-avatar">M</div>
-                    <div class="author-info">
-                        <h5>Michael S.</h5>
-                        <span>Privatmenagerie / Einfamilienhaus</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Endlich mal wieder freie Sicht! Sehr unkomplizierte Terminvergabe über WhatsApp. Das Ergebnis lässt keine Wünsche offen – kein einziger Streifen auf dem Glas."</p>
-                </div>
-                <div class="review-author">
-                    <div class="author-avatar">S</div>
-                    <div class="author-info">
-                        <h5>Sabine K.</h5>
-                        <span>Wohnung mit Wintergarten</span>
-                    </div>
-                </div>
-            </div>
+        <!-- Bewerten-Bereich (Formular) -->
+        <div id="bewertung" class="section-title">Kundenfeedback</div>
+        <section class="reviews-container">
+            <div class="review-card-box">
+                <h3>Ihre Bewertung abgeben</h3>
+                <p class="subtext">Helfen Sie uns und zukünftigen Kunden mit Ihrem ehrlichen Feedback zu PANORAMO!</p>
 
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Top Preis-Leistungs-Verhältnis. Man merkt sofort, dass die Jungs motiviert sind und mit echter Leidenschaft arbeiten. Absolute Empfehlung!"</p>
-                </div>
-                <div class="review-author">
-                    <div class="author-avatar">T</div>
-                    <div class="author-info">
-                        <h5>Thomas B.</h5>
-                        <span>Eigentumswohnung</span>
+                <form class="review-form" action="https://formspree.io/f/mljrdyze" method="POST">
+                    
+                    <input type="hidden" name="_subject" value="Neue Kunden-Bewertung für PANORAMO">
+                    
+                    <div class="form-group">
+                        <label for="name">Ihr Name (oder Initialen)</label>
+                        <input type="text" id="name" name="Name" placeholder="z. B. Max M." required>
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label for="email">E-Mail-Adresse (wird nicht veröffentlicht)</label>
+                        <input type="email" id="email" name="Email" placeholder="name@beispiel.de" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stars">Bewertung</label>
+                        <select id="stars" name="Sternebewertung" required>
+                            <option value="5 Sterne">★★★★★ (5/5 - Ausgezeichnet)</option>
+                            <option value="4 Sterne">★★★★☆ (4/5 - Sehr gut)</option>
+                            <option value="3 Sterne">★★★☆☆ (3/5 - Gut)</option>
+                            <option value="2 Sterne">★★☆☆☆ (2/5 - Mäßig)</option>
+                            <option value="1 Stern">★☆☆☆☆ (1/5 - Schlecht)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feedback">Ihre Erfahrung</label>
+                        <textarea id="feedback" name="Erfahrungsbericht" placeholder="Wie zufrieden waren Sie mit unserer Fensterreinigung?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Bewertung jetzt absenden</button>
+                </form>
             </div>
         </section>
 
@@ -832,7 +853,7 @@
                 </div>
             </div>
 
-            <!-- Formspree Formular -->
+            <!-- Formspree Formular für Termine -->
             <form class="booking-form" id="bookingForm" action="https://formspree.io/f/mljrdyze" method="POST">
                 <h4>Ihre Kontaktdaten</h4>
                 
@@ -860,6 +881,7 @@
     </footer>
 
     <script>
+        // Modal & Kalender Script
         const modal = document.getElementById('calendarModal');
         const openBtn = document.getElementById('openCalendarBtn');
         const closeBtn = document.getElementById('closeCalendarBtn');
