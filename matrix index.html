@@ -938,8 +938,11 @@
                 dayElem.innerText = day;
 
                 const dateObj = new Date(year, month, day);
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
                 
-                if (dateObj.getDay() === 0 || day < now.getDate()) {
+                // Sonntage sind jetzt erlaubt (Prüfung "dateObj.getDay() === 0" entfernt).
+                // Es wird nur geprüft, ob der Tag in der Vergangenheit liegt:
+                if (dateObj < today) {
                     dayElem.classList.add('disabled');
                 } else {
                     dayElem.addEventListener('click', () => selectDay(dayElem, day, monthNames[month], year));
@@ -956,16 +959,19 @@
             selectedDate = `${day}. ${monthName} ${year}`;
             selectedDateText.innerText = selectedDate;
             hiddenDate.value = selectedDate;
-            
+
             timeSlotsSection.style.display = 'block';
             bookingForm.style.display = 'none';
+            
+            document.querySelectorAll('.time-btn').forEach(btn => btn.classList.remove('selected'));
         }
 
         function selectTime(btn, time) {
             document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
+
             selectedTime = time;
-            hiddenTime.value = time;
+            hiddenTime.value = selectedTime;
 
             bookingForm.style.display = 'flex';
         }
@@ -975,8 +981,7 @@
             bookingForm.style.display = 'none';
             document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
             document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
-            selectedDate = null;
-            selectedTime = null;
+            bookingForm.reset();
         }
     </script>
 </body>
