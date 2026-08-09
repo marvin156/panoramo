@@ -895,6 +895,7 @@
 
         let selectedDate = null;
         let selectedTime = null;
+        let selectedFullDateObj = null; // Speichert das genaue Datum für die Slot-Berechnung
 
         openBtn.addEventListener('click', () => {
             modal.style.display = 'flex';
@@ -937,34 +938,47 @@
                 dayElem.classList.add('calendar-day');
                 dayElem.innerText = day;
 
+                const currentLoopDate = new Date(year, month, day);
+
                 if (day < now.getDate()) {
                     dayElem.classList.add('disabled');
                 } else {
-                    dayElem.addEventListener('click', () => selectDay(dayElem, day, monthNames[month], year));
+                    dayElem.addEventListener('click', () => selectDay(dayElem, day, monthNames[month], year, currentLoopDate));
                 }
 
                 grid.appendChild(dayElem);
             }
         }
 
-        function selectDay(elem, day, monthName, year) {
+        function selectDay(elem, day, monthName, year, dateObj) {
             document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
             elem.classList.add('selected');
 
             selectedDate = `${day}. ${monthName} ${year}`;
+            selectedFullDateObj = dateObj;
             selectedDateText.innerText = selectedDate;
             hiddenDate.value = selectedDate;
 
-            renderTimeSlots();
+            renderTimeSlots(dateObj);
 
             timeSlotsSection.style.display = 'block';
             bookingForm.style.display = 'none';
         }
 
-        function renderTimeSlots() {
+        function renderTimeSlots(dateObj) {
             slotsGridContainer.innerHTML = '';
 
-            const times = ["15:00 Uhr", "16:00 Uhr", "17:00 Uhr", "18:00 Uhr", "19:00 Uhr", "20:00 Uhr", "21:00 Uhr"];
+            // Wochentag prüfen: getDay() liefert 0 für Sonntag und 6 für Samstag
+            const dayOfWeek = dateObj.getDay();
+            let times = [];
+
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                // Samstag (6) oder Sonntag (0): 10:00 bis 21:00 Uhr stündlich
+                times = ["10:00 Uhr", "11:00 Uhr", "12:00 Uhr", "13:00 Uhr", "14:00 Uhr", "15:00 Uhr", "16:00 Uhr", "17:00 Uhr", "18:00 Uhr", "19:00 Uhr", "20:00 Uhr", "21:00 Uhr"];
+            } else {
+                // Montag bis Freitag: 15:00 bis 21:00 Uhr stündlich
+                times = ["15:00 Uhr", "16:00 Uhr", "17:00 Uhr", "18:00 Uhr", "19:00 Uhr", "20:00 Uhr", "21:00 Uhr"];
+            }
 
             times.forEach(time => {
                 const btn = document.createElement('button');
@@ -992,6 +1006,7 @@
             document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
             selectedDate = null;
             selectedTime = null;
+            selectedFullDateObj = null;
         }
     </script>
 </body>
