@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PANORAMO - Professionelle Glas- & Fensterreinigung in Kiel</title>
+    <title>PANORAMO - Glasreinigung</title>
     <style>
         :root {
             --bg-dark: #0b132b;
             --card-bg: #1c2541;
-            --accent-cyan: #64dfdf;
-            --accent-light: #90e0ef;
-            --border-color: #3a506b;
+            --accent-cyan: #4cc9f0;
+            --accent-light: #48cae4;
             --text-main: #ffffff;
-            --text-muted: #e0e6ed;
             --text-gray: #a0aec0;
-            --star-gold: #ffc107;
+            --border-color: #3a506b;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
@@ -30,20 +28,16 @@
             line-height: 1.6;
         }
 
-        header {
-            background-color: rgba(11, 19, 43, 0.95);
-            border-bottom: 2px solid var(--accent-cyan);
-            padding: 18px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
         }
 
         .header-content {
@@ -52,42 +46,29 @@
             align-items: center;
         }
 
-        .badge {
-            display: inline-block;
-            background-color: var(--accent-cyan);
-            color: var(--bg-dark);
-            font-weight: 900;
-            font-size: 11px;
-            letter-spacing: 2px;
-            padding: 4px 12px;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
-
         .logo h1 {
-            font-size: 26px;
-            font-weight: 800;
-            letter-spacing: 1px;
+            font-size: 24px;
             color: var(--text-main);
-            margin-top: 4px;
         }
 
-        .logo h1 span {
+        .logo span {
             color: var(--accent-cyan);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            align-items: center;
+        .badge {
+            font-size: 11px;
+            background: var(--border-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 4px;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--text-gray);
             text-decoration: none;
+            margin-left: 20px;
             font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s;
         }
 
         .nav-links a:hover {
@@ -97,399 +78,176 @@
         .header-buttons {
             display: flex;
             gap: 10px;
-            align-items: center;
         }
 
         .header-btn {
-            background-color: transparent;
-            border: 2px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-            font-weight: 700;
             padding: 8px 16px;
             border-radius: 6px;
             text-decoration: none;
             font-size: 14px;
-            transition: all 0.2s;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
             cursor: pointer;
-        }
-
-        .header-btn:hover {
-            background-color: rgba(100, 223, 223, 0.1);
+            background: transparent;
         }
 
         .header-btn-primary {
-            background-color: var(--accent-cyan);
+            background: var(--accent-cyan);
             color: var(--bg-dark);
-            border: 2px solid var(--accent-cyan);
+            font-weight: bold;
         }
 
-        .header-btn-primary:hover {
-            opacity: 0.9;
-            background-color: var(--accent-light);
-        }
-
+        /* SECTIONS */
         .hero {
+            padding: 60px 0 40px;
             text-align: center;
-            padding: 80px 0 50px 0;
         }
 
         .hero h2 {
-            font-size: 42px;
-            color: var(--text-main);
+            font-size: 38px;
             margin-bottom: 15px;
-            line-height: 1.2;
-            font-weight: 800;
         }
 
         .hero h2 span {
             color: var(--accent-cyan);
         }
 
-        .hero .tagline {
-            font-size: 20px;
-            color: var(--accent-light);
-            font-style: italic;
-            margin-bottom: 35px;
+        .tagline {
+            color: var(--text-gray);
+            margin-bottom: 30px;
         }
 
         .hero-box {
-            background-color: var(--card-bg);
-            border-left: 4px solid var(--accent-cyan);
-            padding: 30px;
-            border-radius: 0 10px 10px 0;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
             max-width: 800px;
-            margin: 0 auto 60px auto;
+            margin: 0 auto 30px;
             text-align: left;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-box p {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .hero-box p:last-child {
-            margin-bottom: 0;
+            border: 1px solid var(--border-color);
         }
 
         .section-title {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 22px;
             color: var(--accent-cyan);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            text-align: center;
-            margin-bottom: 40px;
+            margin: 40px 0 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
         }
 
-        .services-grid {
+        .services-grid, .ablauf-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 70px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
-        .service-card {
-            background-color: var(--card-bg);
+        .service-card, .step-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            transition: transform 0.2s, border-color 0.2s;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-cyan);
-        }
-
-        .service-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-size: 20px;
+        .service-icon, .step-number {
+            font-size: 24px;
             color: var(--accent-cyan);
-            margin-bottom: 12px;
-        }
-
-        .service-card p {
-            font-size: 15px;
-            color: var(--text-gray);
-            line-height: 1.6;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
 
         .vorteile-section {
-            background-color: var(--card-bg);
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            display: grid;
+            gap: 15px;
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 70px;
         }
 
         .vorteil-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-
-        .vorteil-item:last-child {
-            margin-bottom: 0;
+            gap: 15px;
         }
 
         .vorteil-icon {
-            background-color: rgba(100, 223, 223, 0.1);
             color: var(--accent-cyan);
-            border: 1px solid var(--accent-cyan);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
             font-weight: bold;
-            margin-right: 20px;
-            flex-shrink: 0;
         }
 
-        .vorteil-content h4 {
-            font-size: 18px;
-            color: var(--text-main);
-            margin-bottom: 5px;
-        }
-
-        .vorteil-content p {
-            font-size: 15px;
-            color: var(--text-gray);
-        }
-
-        .ablauf-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-bottom: 70px;
-        }
-
-        .step-card {
-            background-color: var(--card-bg);
+        .reviews-container, .cta-section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            position: relative;
-        }
-
-        .step-number {
-            background-color: var(--accent-cyan);
-            color: var(--bg-dark);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 14px;
-            margin: 0 auto 15px auto;
-        }
-
-        .step-card h4 {
-            font-size: 17px;
-            color: var(--text-main);
-            margin-bottom: 8px;
-        }
-
-        .step-card p {
-            font-size: 14px;
-            color: var(--text-gray);
-        }
-
-        .reviews-container {
-            margin-bottom: 70px;
-        }
-
-        .review-card-box {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 35px;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .review-card-box h3 {
-            color: var(--accent-cyan);
-            margin-bottom: 8px;
-            font-size: 22px;
-            text-align: center;
-        }
-
-        .review-card-box p.subtext {
-            color: var(--text-gray);
-            font-size: 14px;
-            margin-bottom: 25px;
-            text-align: center;
+            margin-top: 20px;
         }
 
         .review-form {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            margin-top: 15px;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
         }
 
         .form-group label {
             font-size: 13px;
-            font-weight: bold;
-            color: var(--accent-light);
+            color: var(--text-gray);
         }
 
-        .review-form input, 
-        .review-form select, 
-        .review-form textarea {
+        .form-group input, .form-group select, .form-group textarea {
             background: var(--bg-dark);
             border: 1px solid var(--border-color);
             color: var(--text-main);
-            padding: 12px;
+            padding: 10px;
             border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .review-form textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .review-form input:focus, 
-        .review-form select:focus, 
-        .review-form textarea:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
         }
 
         .submit-btn {
-            background-color: var(--accent-cyan);
+            background: var(--accent-cyan);
             color: var(--bg-dark);
             font-weight: bold;
             border: none;
-            padding: 14px;
+            padding: 12px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 15px;
-            transition: background 0.2s;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--accent-light);
         }
 
         .cta-section {
-            background: linear-gradient(135deg, #1c2541 0%, #0b132b 100%);
-            border: 2px solid var(--accent-cyan);
-            border-radius: 16px;
-            padding: 50px 30px;
             text-align: center;
-            margin-bottom: 70px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-        }
-
-        .cta-section h3 {
-            font-size: 28px;
-            color: var(--accent-cyan);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .cta-section p {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .location-info {
-            color: var(--accent-light);
-            font-size: 16px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .email-address {
-            color: var(--accent-cyan);
-            font-size: 22px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .email-address:hover {
-            color: var(--accent-light);
-            text-decoration: underline;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 15px;
             justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
             flex-wrap: wrap;
         }
 
-        .whatsapp-btn, .email-btn, .instagram-btn {
-            font-weight: 700;
-            font-size: 18px;
-            padding: 16px 36px;
-            border-radius: 8px;
+        .cta-buttons a {
+            padding: 10px 20px;
+            border-radius: 6px;
             text-decoration: none;
-            transition: transform 0.2s, opacity 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            color: var(--text-main);
+            background: var(--border-color);
+            font-size: 14px;
         }
 
-        .whatsapp-btn {
-            background-color: #25d366;
-            color: #ffffff;
+        .cta-buttons a.whatsapp-btn {
+            background: #25D366;
+            color: #fff;
+            font-weight: bold;
         }
 
-        .email-btn {
-            background-color: var(--accent-cyan);
-            color: var(--bg-dark);
-        }
-
-        .instagram-btn {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: #ffffff;
-        }
-
-        .instagram-btn:hover, .whatsapp-btn:hover, .email-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-
+        /* MODAL & KALENDER STYLES */
         .modal-overlay {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -497,7 +255,6 @@
             height: 100%;
             background: rgba(11, 19, 43, 0.85);
             backdrop-filter: blur(5px);
-            display: none;
             justify-content: center;
             align-items: center;
             z-index: 1000;
@@ -576,6 +333,7 @@
         .calendar-day.disabled {
             opacity: 0.3;
             cursor: not-allowed;
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .time-slots {
@@ -651,6 +409,7 @@
             text-align: center;
             color: var(--text-gray);
             font-size: 14px;
+            margin-top: 40px;
         }
 
         footer p { margin-bottom: 10px; }
@@ -659,8 +418,6 @@
         @media (max-width: 768px) {
             .hero h2 { font-size: 30px; }
             .nav-links { display: none; }
-            .email-address { font-size: 18px; }
-            .vorteile-section { padding: 25px; }
             .header-buttons { flex-direction: column; gap: 5px; }
         }
     </style>
@@ -695,6 +452,7 @@
             
             <div class="hero-box">
                 <p>Gönnen Sie Ihren Fenstern die perfekte Pflege! Verschmutzungen durch Wetter, Staub und Pollen mindern nicht nur die Lichteinstrahlung, sondern auch das Wohlbefinden in den eigenen vier Wänden.</p>
+                <br>
                 <p>Wir von <strong>PANORAMO</strong> sind ein frisch gegründetes Team aus zwei jungen, motivierten Gründern direkt aus der Region. Mit vollem Einsatz, moderner Technik und echtem Engagement sorgen wir in Kiel und Umgebung persönlich für makellos saubere Außenflächen und streifenfreien Glanz.</p>
             </div>
         </section>
@@ -703,17 +461,17 @@
         <div id="leistungen" class="section-title">Unsere Leistungen</div>
         <section class="services-grid">
             <div class="service-card">
-                <span class="service-icon">🪟</span>
+                <div class="service-icon">🪟</div>
                 <h3>Außenreinigung (Standard)</h3>
                 <p>Unsere Kernkompetenz: Eine gründliche und schonende Reinigung aller Außenfenster und Glasflächen für maximale Helligkeit in Ihren Räumen.</p>
             </div>
             <div class="service-card">
-                <span class="service-icon">🏠</span>
+                <div class="service-icon">🏠</div>
                 <h3>Innenreinigung (Auf Wunsch)</h3>
                 <p>Gerne übernehmen wir nach vorheriger Absprache auch die komplette Innenreinigung Ihrer Fenster und Glasfronten – für 100% Rundum-Sauberkeit.</p>
             </div>
             <div class="service-card">
-                <span class="service-icon">✨</span>
+                <div class="service-icon">✨</div>
                 <h3>Rahmen- & Eckpflege</h3>
                 <p>Saubere Gläser brauchen saubere Rahmen: Auf Wunsch reinigen wir Fenstersimse und Rahmen gründlich mit, damit das Gesamtbild perfekt ist.</p>
             </div>
@@ -724,35 +482,35 @@
         <section class="vorteile-section">
             <div class="vorteil-item">
                 <div class="vorteil-icon">✓</div>
-                <div class="vorteil-content">
+                <div>
                     <h4>Jung, Motiviert & Regional</h4>
                     <p>Als neu gegründetes Lokalunternehmen direkt aus Kiel legen wir bei jedem einzelnen Auftrag 100 % Herzblut an den Tag, um Sie absolut zu begeistern.</p>
                 </div>
             </div>
             <div class="vorteil-item">
                 <div class="vorteil-icon">✓</div>
-                <div class="vorteil-content">
+                <div>
                     <h4>100% Streifenfrei</h4>
                     <p>Kristallklare Sicht ohne Schlieren und Wasserflecken. Wir arbeiten mit professionellem Equipment und bewährten Techniken.</p>
                 </div>
             </div>
             <div class="vorteil-item">
                 <div class="vorteil-icon">✓</div>
-                <div class="vorteil-content">
+                <div>
                     <h4>Fokus auf Außenflächen</h4>
                     <p>Standardmäßig kümmern wir uns um die wetterbeanspruchten Außenflächen. Sie müssen dafür oft nicht einmal zu Hause sein!</p>
                 </div>
             </div>
             <div class="vorteil-item">
                 <div class="vorteil-icon">✓</div>
-                <div class="vorteil-content">
+                <div>
                     <h4>Flexibler Service</h4>
                     <p>Egal ob regelmäßige Pflege oder einmalige Grundreinigung – wir richten uns ganz nach Ihren individuellen Wünschen.</p>
                 </div>
             </div>
             <div class="vorteil-item">
                 <div class="vorteil-icon">✓</div>
-                <div class="vorteil-content">
+                <div>
                     <h4>Faire & Transparente Preise</h4>
                     <p>Keine versteckten Kosten. Sie erhalten vorab eine klare Preisrückmeldung ohne komplizierte Angebote.</p>
                 </div>
@@ -782,59 +540,53 @@
         <!-- Bewerten-Bereich -->
         <div id="bewertung" class="section-title">Kundenfeedback</div>
         <section class="reviews-container">
-            <div class="review-card-box">
-                <h3>Ihre Bewertung abgeben</h3>
-                <p class="subtext">Helfen Sie uns und zukünftigen Kunden mit Ihrem ehrlichen Feedback zu PANORAMO!</p>
+            <h3>Ihre Bewertung abgeben</h3>
+            <p style="color: var(--text-gray); font-size: 14px; margin-bottom: 15px;">Helfen Sie uns und zukünftigen Kunden mit Ihrem ehrlichen Feedback zu PANORAMO!</p>
 
-                <form class="review-form" action="https://formspree.io/f/mljrdyze" method="POST">
-                    <input type="hidden" name="_subject" value="Neue Kunden-Bewertung für PANORAMO">
-                    
-                    <div class="form-group">
-                        <label for="name">Ihr Name (oder Initialen)</label>
-                        <input type="text" id="name" name="Name" placeholder="z. B. Max M." required>
-                    </div>
+            <form class="review-form" action="https://formspree.io/f/mljrdyze" method="POST">
+                <input type="hidden" name="_subject" value="Neue Kunden-Bewertung für PANORAMO">
+                
+                <div class="form-group">
+                    <label for="name">Ihr Name (oder Initialen)</label>
+                    <input type="text" id="name" name="Name" placeholder="z. B. Max M." required>
+                </div>
 
-                    <div class="form-group">
-                        <label for="email">E-Mail-Adresse (wird nicht veröffentlicht)</label>
-                        <input type="email" id="email" name="Email" placeholder="name@beispiel.de" required>
-                    </div>
+                <div class="form-group">
+                    <label for="email">E-Mail-Adresse (wird nicht veröffentlicht)</label>
+                    <input type="email" id="email" name="Email" placeholder="name@beispiel.de" required>
+                </div>
 
-                    <div class="form-group">
-                        <label for="stars">Bewertung</label>
-                        <select id="stars" name="Sternebewertung" required>
-                            <option value="5 Sterne">★★★★★ (5/5 - Ausgezeichnet)</option>
-                            <option value="4 Sterne">★★★★☆ (4/5 - Sehr gut)</option>
-                            <option value="3 Sterne">★★★☆☆ (3/5 - Gut)</option>
-                            <option value="2 Sterne">★★☆☆☆ (2/5 - Mäßig)</option>
-                            <option value="1 Stern">★☆☆☆☆ (1/5 - Schlecht)</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label for="stars">Bewertung</label>
+                    <select id="stars" name="Sternebewertung" required>
+                        <option value="5 Sterne">★★★★★ (5/5 - Ausgezeichnet)</option>
+                        <option value="4 Sterne">★★★★☆ (4/5 - Sehr gut)</option>
+                        <option value="3 Sterne">★★★☆☆ (3/5 - Gut)</option>
+                        <option value="2 Sterne">★★☆☆☆ (2/5 - Mäßig)</option>
+                        <option value="1 Stern">★☆☆☆☆ (1/5 - Schlecht)</option>
+                    </select>
+                </div>
 
-                    <div class="form-group">
-                        <label for="feedback">Ihre Erfahrung</label>
-                        <textarea id="feedback" name="Erfahrungsbericht" placeholder="Wie zufrieden waren Sie mit unserer Fensterreinigung?" required></textarea>
-                    </div>
+                <div class="form-group">
+                    <label for="feedback">Ihre Erfahrung</label>
+                    <textarea id="feedback" name="Erfahrungsbericht" placeholder="Wie zufrieden waren Sie mit unserer Fensterreinigung?" required></textarea>
+                </div>
 
-                    <button type="submit" class="submit-btn">Bewertung jetzt absenden</button>
-                </form>
-            </div>
+                <button type="submit" class="submit-btn">Bewertung jetzt absenden</button>
+            </form>
         </section>
 
         <!-- Kontakt CTA -->
         <section id="kontakt" class="cta-section">
             <h3>Jetzt Kontakt Aufnehmen</h3>
-            <div class="location-info">📍 Einsatzgebiet: <strong>Kiel und Umgebung</strong></div>
+            <div style="margin: 10px 0; color: var(--accent-light);">📍 Einsatzgebiet: <strong>Kiel und Umgebung</strong></div>
             <p>Sichern Sie sich jetzt Ihren Wunschtermin für strahlend saubere Fenster!</p>
-            <p><strong>PANORAMO Glasreinigung</strong></p>
-            
-            <div class="contact-info">
-                <a href="mailto:kontakt@panoramo.info" class="email-address">✉️ kontakt@panoramo.info</a>
-            </div>
+            <p style="margin-top: 10px;"><strong>PANORAMO Glasreinigung</strong></p>
             
             <div class="cta-buttons">
                 <a href="https://wa.me/4917661085610" class="whatsapp-btn">💬 Nachricht per WhatsApp</a>
-                <a href="mailto:kontakt@panoramo.info" class="email-btn">✉️ E-Mail senden</a>
-                <a href="https://www.instagram.com/panoramo_glasreinigung/" target="_blank" rel="noopener noreferrer" class="instagram-btn">📸 Auf Instagram folgen</a>
+                <a href="mailto:kontakt@panoramo.info">✉️ E-Mail senden</a>
+                <a href="https://www.instagram.com/panoramo_glasreinigung/" target="_blank" rel="noopener noreferrer">📸 Auf Instagram folgen</a>
             </div>
         </section>
     </div>
@@ -893,12 +645,9 @@
     </footer>
 
     <script>
-        // Hier trägst du alle blockierten Uhrzeiten im Format "YYYY-MM-DD HH:MM Uhr" ein
+        // Einzelne blockierte Slots im Format "YYYY-MM-DD HH:MM Uhr"
         const blockedSlots = [
             "2026-08-10 15:00 Uhr"
-            // Du kannst hier einfach weitere hinzufügen, z. B.:
-            // "2026-08-12 16:00 Uhr",
-            // "2026-08-15 10:00 Uhr"
         ];
 
         const modal = document.getElementById('calendarModal');
@@ -960,7 +709,10 @@
 
                 const currentLoopDate = new Date(year, month, day);
 
-                if (day < now.getDate()) {
+                // Tag deaktivieren, wenn er in der Vergangenheit liegt ODER Dienstag, 18.08.2026 ist (Monat 7 = August)
+                const isBlockedDay = (day === 18 && month === 7 && year === 2026);
+
+                if (day < now.getDate() || isBlockedDay) {
                     dayElem.classList.add('disabled');
                 } else {
                     dayElem.addEventListener('click', () => selectDay(dayElem, day, monthNames[month], year, currentLoopDate));
@@ -988,7 +740,6 @@
         function renderTimeSlots(dateObj) {
             slotsGridContainer.innerHTML = '';
 
-            // Datumsschlüssel als "YYYY-MM-DD" bauen (z. B. "2026-08-10")
             const year = dateObj.getFullYear();
             const month = String(dateObj.getMonth() + 1).padStart(2, '0');
             const day = String(dateObj.getDate()).padStart(2, '0');
@@ -1003,7 +754,6 @@
                 times = ["15:00 Uhr", "16:00 Uhr", "17:00 Uhr", "18:00 Uhr", "19:00 Uhr", "20:00 Uhr", "21:00 Uhr"];
             }
 
-            // Hier filtern wir blockierte Slots heraus
             const availableTimes = times.filter(time => {
                 const slotKey = `${dateKey} ${time}`;
                 return !blockedSlots.includes(slotKey);
@@ -1043,5 +793,7 @@
             selectedFullDateObj = null;
         }
     </script>
+</body>
+</html>
 </body>
 </html>
